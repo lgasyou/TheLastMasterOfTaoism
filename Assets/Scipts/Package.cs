@@ -5,25 +5,30 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// 背包物品基类
 public class Item {
-    public string name;
-    public string decription;
-    public bool useable;
+    public string name;         // 名称
+    public string decription;   // 描述
+    public string rarity;       // 稀有度
+    public string quality;      // 品质
+    public bool useable;        // 是否可以使用
 }
 
+// 消耗品
 public class Comsumable : Item {
-    public int lastUseTime;
-    public int maxUseTime;
-    public string kind;
+    public int lastUseTime;     // 剩余使用次数
+    public int maxUseTime;      // 最大使用次数
+    public string kind;         // 类型
 }
 
-public class PackageController : MonoBehaviour {
+public class Package : MonoBehaviour {
     public const int defaultPackageSize = 10;
 
+    int packageLevel = 1;
     List<Item> items = new List<Item>();
     int usedSize = 0;
 
-    public PackageController() {
+    public Package() {
         Extend(defaultPackageSize);
     }
 
@@ -31,10 +36,8 @@ public class PackageController : MonoBehaviour {
         return usedSize == items.Count;
     }
 
-    public void Extend(int size) {
-        for (int i = 0; i != size; ++i) {
-            items.Add(null);
-        }
+    public void LevelUp() {
+
     }
 
     public Item Get(int index) {
@@ -62,6 +65,18 @@ public class PackageController : MonoBehaviour {
             }
         }
         Debug.Log("Package is full!");
+    }
+
+    void Extend(int size) {
+        for (int i = 0; i != size; ++i) {
+            items.Add(null);
+        }
+    }
+
+    // TODO - 没有经过测试！
+    public void Merge(Package other) {
+        items.AddRange(other.items);
+        throw new System.NotImplementedException();
     }
 
 #if (UNIT_TEST)
