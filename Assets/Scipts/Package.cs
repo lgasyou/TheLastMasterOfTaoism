@@ -9,9 +9,9 @@ using UnityEngine;
 public class Item {
     public string name;         // 名称
     public string decription;   // 描述
-    public string rarity;       // 稀有度
     public string quality;      // 品质
     public bool useable;        // 是否可以使用
+    public int maxNumber;       // 每格最大叠加数
 }
 
 // 消耗品
@@ -22,7 +22,7 @@ public class Comsumable : Item {
 }
 
 public class Package : MonoBehaviour {
-    public const int defaultPackageSize = 10;
+    public const int defaultPackageSize = 9;
 
     int packageLevel = 1;
     List<Item> items = new List<Item>();
@@ -67,16 +67,16 @@ public class Package : MonoBehaviour {
         Debug.Log("Package is full!");
     }
 
-    void Extend(int size) {
-        for (int i = 0; i != size; ++i) {
-            items.Add(null);
-        }
-    }
-
     // TODO - 没有经过测试！
     public void Merge(Package other) {
         items.AddRange(other.items);
         throw new System.NotImplementedException();
+    }
+
+    void Extend(int size) {
+        for (int i = 0; i != size; ++i) {
+            items.Add(null);
+        }
     }
 
 #if (UNIT_TEST)

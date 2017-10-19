@@ -9,7 +9,7 @@ namespace Entity {
 
         // 目前希望升级时传入背包扣减材料
         void LevelUp(Package package) {
-
+            throw new System.NotImplementedException();
         }
     }
 
