@@ -19,8 +19,14 @@ public class GameController : MonoBehaviour {
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit)) {
             print("OnLeftMouseDown");
-            if (hit.collider.gameObject.tag == "Building") {
+            string tag = hit.collider.gameObject.tag;
+            // TODO
+            switch (tag) {
+                case "NPC":
+                    break;
 
+                case "Pickable":
+                    break;
             }
         }
     }
