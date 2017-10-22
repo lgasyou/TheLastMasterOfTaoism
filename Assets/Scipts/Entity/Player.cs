@@ -14,16 +14,11 @@ namespace Entity {
     }
 
     public class Player : Creative {
-        public string playerName;                       // ID
-        public int energy;                              // 能量点数
+        public int mana;                                // 魔法值
         public int meridian;                            // 经脉-TODO
         public Package package = new Package();         // 背包
         public Equipment equipment = new Equipment();   // 装备
         public PlayerLevel level = new PlayerLevel();   // 玩家等级
-
-        void Attack(Creative other) {
-            throw new System.NotImplementedException();
-        }
 
         // Use this for initialization
         void Start() {
@@ -33,6 +28,10 @@ namespace Entity {
         // Update is called once per frame
         void Update() {
 
+        }
+
+        public override int Attack() {
+            throw new System.NotImplementedException();
         }
     }
 }

@@ -3,36 +3,37 @@ using System.Collections.Generic;
 using UnityEngine;
 
 // 暂时放置在这
-// 装备与背包系统相似，可以重用PackageController的代码
+// 装备与背包系统相似，可以重用Package的代码
 public class Equipment {
     Package equipment = new Package();
 }
 
 // 暂时放置在这
 public class Skill {
-
+    public string name;                 // 名称
+    public string description;          // 介绍
+    public int manaCost;                // 耗蓝
+    public int factor;                  // 攻击加成
 }
 
 namespace Entity {
     // 生物类
-    public class Creative : MonoBehaviour {
+    public abstract class Creative : MonoBehaviour {
         public string kind;             // 生物种类
         public string creativeName;     // ID
         public int health;              // 生命点数
         public int attack;              // 攻击力
+        public int resistance;          // 抗性
 
         public bool IsAlive() {
             return health > 0;
         }
 
-        // Use this for initialization
-        void Start() {
-
+        public void ReceiveDamage(int damage) {
+            health -= (1 - resistance) * damage;
         }
 
-        // Update is called once per frame
-        void Update() {
+        public abstract int Attack();
 
-        }
     }
 }

@@ -16,5 +16,10 @@ namespace Entity {
         void Update() {
 
         }
+
+        // 交易者不应该攻击
+        public override int Attack() {
+            throw new System.NotSupportedException();
+        }
     }
 }
