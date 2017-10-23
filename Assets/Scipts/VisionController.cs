@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class beibaojiaodu : MonoBehaviour {
+public class VisionController : MonoBehaviour {
 	public Vector2 range = new Vector2(5f, 3f);
 
 	Transform mTrans;
