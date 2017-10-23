@@ -21,15 +21,15 @@ public class Comsumable : Item {
     public string kind;         // 类型
 }
 
-public class Package : MonoBehaviour {
-    public const int defaultPackageSize = 9;
+public class Package {
+    public const int defaultPackageSize = 32;
 
     int packageLevel = 1;
     List<Item> items = new List<Item>();
     int usedSize = 0;
 
-    public Package() {
-        Extend(defaultPackageSize);
+    public Package(int size = defaultPackageSize) {
+        Extend(size);
     }
 
     public bool IsFull() {
