@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 // 背包物品基类
-public class Item {
+public class PackageItem {
     public string name;         // 名称
     public string decription;   // 描述
     public string quality;      // 品质
@@ -15,7 +15,7 @@ public class Item {
 }
 
 // 消耗品
-public class Comsumable : Item {
+public class Comsumable : PackageItem {
     public int lastUseTime;     // 剩余使用次数
     public int maxUseTime;      // 最大使用次数
     public string kind;         // 类型
@@ -25,7 +25,7 @@ public class Package {
     public const int defaultPackageSize = 32;
 
     int packageLevel = 1;
-    List<Item> items = new List<Item>();
+    List<PackageItem> items = new List<PackageItem>();
     int usedSize = 0;
 
     public Package(int size = defaultPackageSize) {
@@ -40,7 +40,7 @@ public class Package {
 
     }
 
-    public Item Get(int index) {
+    public PackageItem Get(int index) {
         return items[index];
     }
 
@@ -49,14 +49,14 @@ public class Package {
         items[index] = null;
     }
 
-    public void Put(int index, Item item) {
+    public void Put(int index, PackageItem item) {
         if (items[index] == null) {
             ++usedSize;
         }
         items[index] = item;
     }
 
-    public void Put(Item item) {
+    public void Put(PackageItem item) {
         for (int i = 0; i != items.Count; ++i) {
             if (items[i] == null) {
                 ++usedSize;

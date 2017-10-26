@@ -9,14 +9,12 @@ public class VisionController : MonoBehaviour {
 	Quaternion mStart;
 	Vector2 mRot = Vector2.zero;
 
-	void Start ()
-	{
+	void Start () {
 		mTrans = transform;
 		mStart = mTrans.localRotation;
 	}
 
-	void Update ()
-	{
+	void Update () {
 		Vector3 pos = Input.mousePosition;
 
 		float halfWidth = Screen.width * 0.5f;

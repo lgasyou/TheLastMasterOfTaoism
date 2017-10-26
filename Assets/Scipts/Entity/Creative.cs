@@ -4,8 +4,8 @@ using UnityEngine;
 
 // 暂时放置在这
 // 装备与背包系统相似，可以重用Package的代码
-public class Equipment {
-    Package equipment = new Package();
+public class Equipment : Package {
+
 }
 
 // 暂时放置在这
