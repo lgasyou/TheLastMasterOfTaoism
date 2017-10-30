@@ -2947,6 +2947,7 @@ GameObject:
   m_IsPrefabParent: 0
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 --- !u!1 &1439586744
 GameObject:
@@ -3021,6 +3022,8 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
 >>>>>>> 88b8c2492ef8a4708389497171ffeb60b2f2cda3
+=======
+>>>>>>> parent of e43718c... 战斗场景完善
 =======
 >>>>>>> parent of e43718c... 战斗场景完善
 --- !u!1 &1545226399
@@ -3116,6 +3119,7 @@ Transform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
 --- !u!1 &1940362586
 GameObject:
   m_ObjectHideFlags: 0
@@ -3145,6 +3149,8 @@ Transform:
   m_Father: {fileID: 1298531724}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+=======
+>>>>>>> parent of e43718c... 战斗场景完善
 =======
 >>>>>>> parent of e43718c... 战斗场景完善
 --- !u!1001 &1907037024
