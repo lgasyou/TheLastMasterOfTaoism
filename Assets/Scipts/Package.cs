@@ -5,39 +5,42 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Item {
-    public string name;
-    public string decription;
-    public bool useable;
+// 背包物品基类
+public class PackageItem {
+    public string name;         // 名称
+    public string decription;   // 描述
+    public string quality;      // 品质
+    public bool useable;        // 是否可以使用
+    public int maxNumber;       // 每格最大叠加数
 }
 
-public class Comsumable : Item {
-    public int lastUseTime;
-    public int maxUseTime;
-    public string kind;
+// 消耗品
+public class Comsumable : PackageItem {
+    public int lastUseTime;     // 剩余使用次数
+    public int maxUseTime;      // 最大使用次数
+    public string kind;         // 类型
 }
 
-public class PackageController : MonoBehaviour {
-    public const int defaultPackageSize = 10;
+public class Package {
+    public const int defaultPackageSize = 32;
 
-    List<Item> items = new List<Item>();
+    int packageLevel = 1;
+    List<PackageItem> items = new List<PackageItem>();
     int usedSize = 0;
 
-    public PackageController() {
-        Extend(defaultPackageSize);
+    public Package(int size = defaultPackageSize) {
+        Extend(size);
     }
 
     public bool IsFull() {
         return usedSize == items.Count;
     }
 
-    public void Extend(int size) {
-        for (int i = 0; i != size; ++i) {
-            items.Add(null);
-        }
+    public void LevelUp() {
+
     }
 
-    public Item Get(int index) {
+    public PackageItem Get(int index) {
         return items[index];
     }
 
@@ -46,14 +49,14 @@ public class PackageController : MonoBehaviour {
         items[index] = null;
     }
 
-    public void Put(int index, Item item) {
+    public void Put(int index, PackageItem item) {
         if (items[index] == null) {
             ++usedSize;
         }
         items[index] = item;
     }
 
-    public void Put(Item item) {
+    public void Put(PackageItem item) {
         for (int i = 0; i != items.Count; ++i) {
             if (items[i] == null) {
                 ++usedSize;
@@ -62,6 +65,18 @@ public class PackageController : MonoBehaviour {
             }
         }
         Debug.Log("Package is full!");
+    }
+
+    // TODO - 没有经过测试！
+    public void Merge(Package other) {
+        items.AddRange(other.items);
+        throw new System.NotImplementedException();
+    }
+
+    void Extend(int size) {
+        for (int i = 0; i != size; ++i) {
+            items.Add(null);
+        }
     }
 
 #if (UNIT_TEST)
