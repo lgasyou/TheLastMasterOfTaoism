@@ -19,6 +19,7 @@ namespace Entity {
         public Package package = new Package();         // 背包
         public Equipment equipment = new Equipment();   // 装备
         public PlayerLevel level = new PlayerLevel();   // 玩家等级
+        public int money = 0;                           // 金钱
 
         // Use this for initialization
         void Start() {
