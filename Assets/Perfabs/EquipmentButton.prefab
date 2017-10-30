@@ -23,7 +23,6 @@ GameObject:
   - component: {fileID: 114561281931367276}
   - component: {fileID: 114732864658636068}
   - component: {fileID: 114401819338292078}
-  - component: {fileID: 114504725101733892}
   m_Layer: 5
   m_Name: EquipmentButton
   m_TagString: Untagged
@@ -90,17 +89,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4503d7d2706f1f74bb9e750d7ab7476e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &114504725101733892
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1712584060212008}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 622a239255c5fef4f8162e9a9f6f9c22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &114561281931367276
