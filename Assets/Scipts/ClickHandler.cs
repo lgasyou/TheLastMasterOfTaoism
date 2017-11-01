@@ -12,13 +12,13 @@ public class ClickHandler : MonoBehaviour {
 
     public void OnClicked() {
         // 'button', '($number)'
-        string[] split = name.Split(' ');
+        string[] splited = name.Split(' ');
         // $number)
-        string withoutLeftParen = split[1].Substring(1);
+        string withoutLeftParen = splited[1].Substring(1);
         // $number
         string withoutRightParen = withoutLeftParen.Substring(0, withoutLeftParen.Length - 1);
         int index = int.Parse(withoutRightParen);
-        System.Reflection.MethodInfo methodInfo = typeof(ClickHandler).GetMethod(split[0] + "In" + "Store");
+        System.Reflection.MethodInfo methodInfo = typeof(ClickHandler).GetMethod(splited[0] + "In" + "Store");
         methodInfo.Invoke(this, new object[] { index });
     }
 
@@ -31,7 +31,10 @@ public class ClickHandler : MonoBehaviour {
         Entity.Player player = playerObj.GetComponent<Entity.Player>();
         PackageItem item = player.package.Get(indexInPackage);
         if (item != null) {
-            player.package.Remove(indexInPackage);
+            if (!player.equipment.IsFull()) {
+                player.equipment.Put(item);
+                player.package.Remove(indexInPackage);
+            }
         }
         print("Store");
     }
@@ -45,9 +48,7 @@ public class ClickHandler : MonoBehaviour {
         Entity.Player player = playerObj.GetComponent<Entity.Player>();
         PackageItem item = player.package.Get(indexInPackage);
         if (item != null) {
-            if (item.useable) {
-                // 使用物品
-            } else if (!player.equipment.IsFull()) {
+            if (!player.equipment.IsFull()) {
                 player.equipment.Put(item);
                 player.package.Remove(indexInPackage);
             }
