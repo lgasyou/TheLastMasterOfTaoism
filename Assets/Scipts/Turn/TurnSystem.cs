@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using Entity;
+using Entities;
 
 namespace Turn {
     public class TurnSystem : MonoBehaviour {

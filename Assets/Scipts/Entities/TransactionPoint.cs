@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Entity {
+namespace Entities {
     // 交易点
     public class TransactionPoint : Creative {
         public Package package = new Package();    // 可交易物品列表

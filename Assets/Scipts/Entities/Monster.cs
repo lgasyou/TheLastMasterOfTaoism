@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Entity {
+namespace Entities {
     public class Monster : Creative {
         public List<Skill> skills = new List<Skill>();  // 技能
         public Package package = new Package();         // 掉落物背包

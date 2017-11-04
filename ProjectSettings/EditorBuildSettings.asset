@@ -4,4 +4,28 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/_Scenes/Map.unity
+    guid: ab1d7e28a4e7a054eb322e817023a1cc
+  - enabled: 1
+    path: Assets/_Scenes/Backpack.unity
+    guid: a059dcb71d96b9643ba10acd1b6fb0a1
+  - enabled: 1
+    path: Assets/_Scenes/Fighting.unity
+    guid: ec419abbce0cc9c4991a6250bfd3c837
+  - enabled: 1
+    path: Assets/_Scenes/OrginOfTaoism.unity
+    guid: 80bab809fe87e6a4ea7eb17dd04d9664
+  - enabled: 1
+    path: Assets/_Scenes/QingNiuTown.unity
+    guid: e0ca7b63f0dee224b9e4ba67e80cb6a5
+  - enabled: 1
+    path: Assets/_Scenes/Refining.unity
+    guid: 3cb0bb2826000dc4792739ebce10b8e7
+  - enabled: 1
+    path: Assets/_Scenes/Store.unity
+    guid: 0c8ed9043710f57479bb6574f266814a
+  - enabled: 1
+    path: Assets/_Scenes/Task.unity
+    guid: 213567e5a875c9d4f9e7b647ec1e90bd

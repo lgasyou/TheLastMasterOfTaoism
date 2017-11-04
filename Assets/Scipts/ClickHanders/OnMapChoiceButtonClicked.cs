@@ -4,16 +4,17 @@ using UnityEngine;
 using UnityEngine.UI;
 
 namespace ClickHandlers {
-    public class OnSkillChoiceButtonClicked : MonoBehaviour {
-        // Use this for initialization
+    public class OnMapChoiceButtonClicked : MonoBehaviour {
         void Start() {
             Button button = GetComponent<Button>();
             button.onClick.AddListener(OnClicked);
         }
 
         public void OnClicked() {
-            int index = Utils.NumberedButtonClickHelper.Parse(name).Value;
-            print("Skill" + index);
+            var player = Entities.Player.Instance;
+            string sceneName = name.Split(' ')[0];
+            UnityEngine.SceneManagement.SceneManager.LoadScene(sceneName);
+            print("On load scene" + sceneName);
         }
     }
 }

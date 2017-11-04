@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Entities;
 
 namespace ClickHandlers {
-    public class OnEquipmentButtonClicked : MonoBehaviour {
+    public class OnStoreButtonClicked : MonoBehaviour {
         // Use this for initialization
         void Start() {
             Button button = GetComponent<Button>();
@@ -14,15 +15,21 @@ namespace ClickHandlers {
         public void OnClicked() {
             var player = Entities.Player.Instance;
             int index = Utils.NumberedButtonClickHelper.Parse(name).Value;
-            PackageItem item = player.equipment.Get(index);
+            GameObject sellerObject = GameObject.FindWithTag("NPC");
+            if (sellerObject == null) {
+                Debug.Log("Cannot find seller");
+                return;
+            }
+            TransactionPoint point = sellerObject.GetComponent<TransactionPoint>();
+
+            PackageItem item = point.package.Get(index);
             if (item != null) {
                 if (!player.package.IsFull()) {
                     player.package.Put(item);
-                    player.equipment.Remove(index);
+                    point.package.Remove(index);
                 }
             }
-            print("Equipment" + index);
+            print("Store" + index);
         }
     }
 }
-

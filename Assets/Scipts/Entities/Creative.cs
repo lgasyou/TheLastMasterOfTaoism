@@ -16,7 +16,7 @@ public class Skill {
     public int factor;                  // 攻击加成
 }
 
-namespace Entity {
+namespace Entities {
     // 生物类
     public abstract class Creative : MonoBehaviour {
         public string kind;             // 生物种类

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace ClickHandler {
+namespace ClickHandlers {
     public class UseSelectedItem : MonoBehaviour {
         // Use this for initialization
         void Start() {
@@ -12,7 +12,7 @@ namespace ClickHandler {
         }
 
         public void OnClicked() {
-            var player = Entity.Player.Instance;
+            var player = Entities.Player.Instance;
             int index = Utils.NumberedButtonClickHelper.Parse(name).Value;
             PackageItem item = player.package.Get(index);
             if (item != null) {

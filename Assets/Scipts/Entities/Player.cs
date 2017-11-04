@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Entity {
+namespace Entities {
     // 目前希望将等级与升级条件存入文件之中，游戏运行时读取
     public class PlayerLevel {
         string level;
