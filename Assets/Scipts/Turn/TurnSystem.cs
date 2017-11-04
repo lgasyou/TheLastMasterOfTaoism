@@ -7,7 +7,7 @@ using Entity;
 namespace Turn {
     public class TurnSystem : MonoBehaviour {
         List<Monster> units = new List<Monster>();
-        Player player = null;
+        Player player;
 
         // Use this for initialization
         void Start() {

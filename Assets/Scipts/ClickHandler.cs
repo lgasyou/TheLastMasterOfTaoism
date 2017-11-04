@@ -12,13 +12,13 @@ public class ClickHandler : MonoBehaviour {
 
     public void OnClicked() {
         // 'button', '($number)'
-        string[] splited = name.Split(' ');
+        string[] split = name.Split(' ');
         // $number)
-        string withoutLeftParen = splited[1].Substring(1);
+        string withoutLeftParen = split[1].Substring(1);
         // $number
         string withoutRightParen = withoutLeftParen.Substring(0, withoutLeftParen.Length - 1);
         int index = int.Parse(withoutRightParen);
-        System.Reflection.MethodInfo methodInfo = typeof(ClickHandler).GetMethod(splited[0] + "In" + "Store");
+        System.Reflection.MethodInfo methodInfo = typeof(ClickHandler).GetMethod(split[0] + "In" + "Store");
         methodInfo.Invoke(this, new object[] { index });
     }
 

@@ -19,19 +19,10 @@ namespace Entity {
         public Package package = new Package();         // 背包
         public Equipment equipment = new Equipment();   // 装备
         public PlayerLevel level = new PlayerLevel();   // 玩家等级
-
-        // Use this for initialization
-        void Start() {
-
-        }
-
-        // Update is called once per frame
-        void Update() {
-
-        }
+        public int money = 0;                           // 玩家金钱
 
         public override int Attack() {
-            throw new System.NotImplementedException();
+            return attack;
         }
     }
 }
