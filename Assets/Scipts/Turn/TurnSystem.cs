@@ -11,10 +11,7 @@ namespace Turn {
 
         // Use this for initialization
         void Start() {
-            GameObject[] playerObjects = GameObject.FindGameObjectsWithTag("PlayerUnit");
-            foreach (GameObject playerObject in playerObjects) {
-                player = playerObject.GetComponent<Player>();
-            }
+            player = Player.Instance;
             GameObject[] enemyObjects = GameObject.FindGameObjectsWithTag("EnemyUnit");
             foreach (GameObject enemyObject in enemyObjects) {
                 monster = enemyObject.GetComponent<Monster>();
@@ -29,14 +26,11 @@ namespace Turn {
 
         public void PlayerAttack() {
             Attack(player, monster);
+            MonsterTurn();
         }
 
-        public void PlayerUse() {
-
-        }
-
-        public void PlayerBackpack() {
-            
+        public void PlayerUseSkill() {
+            MonsterTurn();
         }
 
         public void PlayerFlee() {
@@ -46,6 +40,7 @@ namespace Turn {
         void Attack(Creative attacker, Creative receiver) {
             int damage = attacker.Attack();
             receiver.ReceiveDamage(damage);
+            print("taking damage!");
         }
     }
 }

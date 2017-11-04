@@ -36,10 +36,5 @@ namespace Turn {
         public void ShowItem() {
             Show("Item");
         }
-
-        public void Attack() {
-            var turnSystem = GetComponent<TurnSystem>();
-            turnSystem.PlayerAttack();
-        }
     }
 }

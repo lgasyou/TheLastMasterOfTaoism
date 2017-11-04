@@ -21,8 +21,27 @@ namespace Entity {
         public PlayerLevel level = new PlayerLevel();   // 玩家等级
         public int money = 0;                           // 玩家金钱
 
+        static Player instance = null;
+        public static Player Instance {
+            get {
+                if (instance == null) {
+                    GameObject obj = new GameObject {
+                        name = "singleton"
+                    };
+                    instance = obj.AddComponent<Player>();
+                }
+                return instance;
+            }
+        }
+
         public override int Attack() {
             return attack;
+        }
+
+        Player() {
+            health = 100;
+            attack = 10;
+            resistance = 0.1f;
         }
     }
 }

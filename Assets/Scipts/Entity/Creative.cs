@@ -23,14 +23,14 @@ namespace Entity {
         public string creativeName;     // ID
         public int health;              // 生命点数
         public int attack;              // 攻击力
-        public int resistance;          // 抗性
+        public float resistance;          // 抗性
 
         public bool IsAlive() {
             return health > 0;
         }
 
         public void ReceiveDamage(int damage) {
-            health -= (1 - resistance) * damage;
+            health -= (int)((1 - resistance) * damage);
         }
 
         public abstract int Attack();

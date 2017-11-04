@@ -6,6 +6,7 @@ TagManager:
   tags:
   - NPC
   - Pickable
+  - EnemyUnit
   layers:
   - Default
   - TransparentFX
