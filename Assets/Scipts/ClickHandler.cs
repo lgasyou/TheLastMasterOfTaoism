@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class ClickHandler : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         Button button = GetComponent<Button>();
         button.onClick.AddListener(OnClicked);
+        print(SceneManager.GetActiveScene().name);
 	}
 
     public void OnClicked() {
@@ -18,7 +20,7 @@ public class ClickHandler : MonoBehaviour {
         // $number
         string withoutRightParen = withoutLeftParen.Substring(0, withoutLeftParen.Length - 1);
         int index = int.Parse(withoutRightParen);
-        System.Reflection.MethodInfo methodInfo = typeof(ClickHandler).GetMethod(split[0] + "In" + "Store");
+        System.Reflection.MethodInfo methodInfo = typeof(ClickHandler).GetMethod(split[0]);
         methodInfo.Invoke(this, new object[] { index });
     }
 

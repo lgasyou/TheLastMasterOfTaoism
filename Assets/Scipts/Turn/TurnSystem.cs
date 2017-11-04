@@ -6,7 +6,7 @@ using Entity;
 
 namespace Turn {
     public class TurnSystem : MonoBehaviour {
-        List<Monster> units = new List<Monster>();
+        Monster monster;
         Player player;
 
         // Use this for initialization
@@ -17,23 +17,18 @@ namespace Turn {
             }
             GameObject[] enemyObjects = GameObject.FindGameObjectsWithTag("EnemyUnit");
             foreach (GameObject enemyObject in enemyObjects) {
-                Monster enemy = enemyObject.GetComponent<Monster>();
-                units.Add(enemy);
+                monster = enemyObject.GetComponent<Monster>();
             }
         }
 
         public void MonsterTurn() {
-            Monster monster = units[0];
-            units.Remove(monster);
-            while (monster.IsAlive()) {
+            if (monster.IsAlive()) {
                 Attack(monster, player);
-                units.Add(monster);
-                monster = units[0];
             }
         }
 
         public void PlayerAttack() {
-            Attack(player, units[0]);
+            Attack(player, monster);
         }
 
         public void PlayerUse() {
